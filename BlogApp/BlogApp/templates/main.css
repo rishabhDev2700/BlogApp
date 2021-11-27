@@ -1,0 +1,60 @@
+body {
+    background-color: whitesmoke;
+    margin: 0px;
+}
+
+.tile {
+    min-width: 30%;
+    max-width: 30%;
+    margin: 1rem;
+}
+
+@media screen and (max-width: 600px) {
+    .tiles {
+        text-align: start;
+    }
+
+    .tile {
+        min-width: 85%;
+        margin: auto;
+        padding: 4rem 0rem;
+    }
+}
+
+.date {
+    color: grey
+}
+
+.cover {
+    height: 30%;
+    width: 100%;
+    margin: 3rem 0rem;
+}
+
+.blog {
+    width: 100%;
+}
+
+ul {
+    align-content: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+li a {
+    text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+    .footer-links {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .footer-link {
+        padding: 1rem;
+        margin: 0%;
+    }
+}
