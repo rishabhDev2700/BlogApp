@@ -1,0 +1,14 @@
+{%extends 'blog/base.html'%}
+{%block title%}{%endblock%}
+{%block content%}
+<div class="container">
+    <div class="card d-flex flex-row w-50"><img class="card-img" src="{{user.profile_pic.url}}">
+        <div class="card-body">
+            <div class="title">Username: {{user.username}}</div>
+            <div class="subtitle">email: {{user.email}}</div>
+            <div class="subtitle">First Name: {{user.first_name}}</div>
+            <div class="subtitle">Last Name: {{user.last_name}}</div>
+        </div>
+    </div>
+</div>
+{%endblock%}
