@@ -1,17 +1,17 @@
 {%extends 'blog/base.html'%}
 {%block title%}{%endblock%}
 {%block content%}
-<div class="container d-flex flex-row flex-wrap">
+<div class="container my-3 d-flex flex-row flex-wrap w-100">
         {%for blog in blogs%}
-        <a class="btn" href="/blog/{{blog.id}}">
-            <div class="tile bg-secondary p-4 border-2 rounded-lg w-auto ">
+        <a class="btn btn-light text-dark m-3 col-lg h-100" href="/blog/{{blog.id}}">
+            <div class="card">
                 <div>
-                    <img class="img col-md border rounded-lg border-danger m-0 p-0" src="{{blog.cover.url}}"
+                    <img class="img w-100 border rounded-lg border-danger m-0 p-0" src="{{blog.cover.url}}"
                         alt="image not found">
                 </div>
-                <div class="text col">
-                    <div class="date row-sm h4">{{blog.pub_date}}</div>
-                    <div class="title row-md h1">{{blog.title}}</div>
+                <div class="text rows">
+                    <div class="date row-lg h4">{{blog.pub_date}}</div>
+                    <div class="title row-lg h3">{{blog.title}}</div>
                     <div class="subtitle row-lg h6">{{blog.content|safe|truncatechars:100}} </div>
                 </div>
 

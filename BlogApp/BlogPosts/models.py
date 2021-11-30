@@ -15,7 +15,7 @@ class Comment(models.Model):
 class Blog(models.Model):
     author = models.ForeignKey(User, on_delete=models.DO_NOTHING, default=None)
     title = models.CharField(max_length=60)
-    content = models.TextField(max_length=1200)
+    content = models.TextField(max_length=4000)
     cover = models.ImageField(upload_to='cover/', blank=True)
     pub_date = models.DateTimeField(auto_created=True)
     comments = models.ForeignKey(Comment, on_delete=models.CASCADE, null=True)

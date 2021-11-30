@@ -7,40 +7,34 @@
         <div class="big-tile row border rounded-lg m-4">
             <div>
                 <img class="img col-md border rounded-lg border-danger m-0 p-0"
-                    src="https://th.bing.com/th/id/OIP.NR70qjnzYQBDxLGrQjsuGwHaHa?pid=ImgDet&rs=1" alt="">
+                     src="{{recent_blog.cover.url}}" alt="">
             </div>
             <div class="text col">
-                <div class="date row-sm h4">Date/time</div>
-                <div class="title row-md h1">{{Title}}</div>
-                <div class="subtitle row-lg h6"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod,
-                    excepturi
-                    eius.
-                    Eum at quae harum perferendis tempore ipsam. Ratione cumque expedita nisi consequuntur minima
-                    aliquam optio itaque consectetur magnam ea!</div>
+                <div class="date row-sm h4">{{recent_blog.pub_date}}</div>
+                <div class="title row-md h1">{{recent_blog.title}}</div>
+                <div class="subtitle row-lg h6">{{recent_blog.content|safe|truncatechars:100}}</div>
             </div>
         </div>
 
     </div>
+    <div class="h3">Some recent Blogs</div>
     <div class="tiles p-0 d-flex flex-row flex-wrap">
-        <a class="btn">
-            <div class="tile w-auto ">
+        {%for blog in blogs%}
+        <a class="btn btn-light text-dark m-3 col-lg h-100" href="/blog/{{blog.id}}">
+            <div class="card">
                 <div>
-                    <img class="img col-md border rounded-lg border-danger m-0 p-0"
-                        src="https://th.bing.com/th/id/OIP.NR70qjnzYQBDxLGrQjsuGwHaHa?pid=ImgDet&rs=1" alt="">
+                    <img class="img w-100 border rounded-lg border-danger m-0 p-0" src="{{blog.cover.url}}"
+                        alt="image not found">
                 </div>
-                <div class="text col">
-                    <div class="date row-sm h4">Date/time</div>
-                    <div class="title row-md h1">Title</div>
-                    <div class="subtitle row-lg h6"> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod,
-                        excepturi
-                        eius.
-                        Eum at quae harum perferendis tempore ipsam. Ratione cumque expedita nisi consequuntur
-                        minima
-                        aliquam optio itaque consectetur magnam ea!</div>
+                <div class="text rows">
+                    <div class="date row-lg h4">{{blog.pub_date}}</div>
+                    <div class="title row-lg h3">{{blog.title}}</div>
+                    <div class="subtitle row-lg h6">{{blog.content|safe|truncatechars:100}} </div>
                 </div>
 
             </div>
         </a>
+        {%endfor%}
     </div>
 </div>
 {%endblock%}

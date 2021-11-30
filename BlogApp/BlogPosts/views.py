@@ -9,14 +9,15 @@ from BlogPosts.models import Blog
 
 
 def home(request):
+    recent_blog = Blog.objects.filter(pub_date__month__gte=datetime.date.today().month)
     blogs = Blog.objects.all()
-    context = {'blogs': blog}
+    context = {'blogs': blogs, 'recent_blog': recent_blog}
     return render(request, 'blog/home.html', context)
 
 
 def blog(request, pk):
-    blog = Blog.objects.get(pk=pk)
-    context = {'blog': blog}
+    full_blog = Blog.objects.get(pk=pk)
+    context = {'blog': full_blog}
     return render(request, 'blog/blog.html', context)
 
 
