@@ -1,5 +1,6 @@
 import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
@@ -34,6 +35,7 @@ def blogposts(request):
     return render(request, 'blog/blog_list.html', {'blogs': blogs})
 
 
+@login_required
 def publish_blog(request):
     if request.method == 'POST':
         form = BlogForm(request.POST, request.FILES, instance=Blog(author=request.user, pub_date=datetime.date.today()))
@@ -46,5 +48,7 @@ def publish_blog(request):
     return render(request, 'blog/blog_form.html', {'form': form})
 
 
+@login_required
 def profile(request):
-    return render(request, 'blog/profile.html')
+    blogs = Blog.objects.filter(author=request.user)
+    return render(request, 'blog/profile.html', {'blogs': blogs})
